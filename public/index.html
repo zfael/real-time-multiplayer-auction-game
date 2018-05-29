@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Real Time Multiplayer Game</title>
+    <!-- <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" type="text/css" /> -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" type="text/css" />
+
+    <!-- <link rel="stylesheet" href="css/font.css" type="text/css" /> -->
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+</head>
+
+<body ng-cloak>
+
+    <div class="jumbotron bg-primary text-center">
+        <div>
+            <span>Real Time Multiplayer Game</span>
+        </div>
+    </div>
+
+    <div class="container" ng-controller="mainController">
+        <div class="row" ng-if="auctionActive">
+            <div class="col-md-12 text-center">
+                <div class="alert alert-success" role="alert">
+                    <span>Your item was included in the auction</span>
+                    <br/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <user-stats user="user"></user-stats>
+            </div>
+            <div class="col-md-4">
+                <inventory inventories="inventories" user="user" auction-feedback="auctionFeedback"> </inventory>
+            </div>
+            <div class="col-md-4">
+                <auction no-auction="noAuction" current-auction="currentAuction" user="user"></auction>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="newAuction.html">
+        <div ng-include="'js/modals/auction/newAuction.html'"></div>
+      </script>
+    <script type="text/ng-template" id="endAuction.html">
+        <div ng-include="'js/modals/endAuction/endAuction.html'"></div>
+      </script>
+
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>s
+
+    <!-- Bootstrap -->
+    <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+
+    <!-- Base64 -->
+    <script src="bower_components/angular-base64/angular-base64.min.js"></script>
+
+    <!-- bootstrap ui -->
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+
+    <!-- <script src="bower_components/angular-material/angular-material.js"></script> -->
+
+    <!-- <script src="libs/angular/angular-ui-router/release/angular-ui-router.js"></script> -->
+
+    <!-- App -->
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers/main.controller.js"></script>
+    <script src="js/modals/auction/newAuction.controller.js"></script>
+    <script src="js/modals/endAuction/endAuction.controller.js"></script>
+
+    <script src="js/services/constant.service.js"></script>
+    <script src="js/services/user.service.js"></script>
+    <script src="js/services/inventory.service.js"></script>
+    <script src="js/services/auction.service.js"></script>
+
+    <script src="js/directives/user/userStats.directive.js"></script>
+    <script src="js/directives/inventory/inventory.directive.js"></script>
+    <script src="js/directives/auction/auction.directive.js"></script>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

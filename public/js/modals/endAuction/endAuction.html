@@ -1,0 +1,19 @@
+<div class="modal-header text-center">
+    <h3 class="modal-title">Auction has ended</h3>
+</div>
+<div class="modal-body text-center">
+
+
+    <div ng-if="winner.winningUser">
+
+        <h4> Follow below the winner information:</h4>
+    
+        <h4>Winner Bid: <span class="text-primary">{{winner.winningBid}}</span></h4>
+        <h4>Winner User: <span class="text-primary">{{winner.winningUser}}</span></h4>
+    </div>
+
+    <div ng-if="!winner.winningUser">
+        <h4>There was no bid for this auction.</h4>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h3 class="modal-title">Start Auction</h3>
+</div>
+<div class="modal-body">
+
+    <form name="form">
+        <div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" ng-model="auction.quantity" min="1">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Minimum bid</label>
+                <input type="number" class="form-control" ng-model="auction.minBid" min="1">
+            </div>
+        </div>
+
+        <div class="alert alert-warning" role="alert" ng-if="warnMessage">
+            <span>Quantity can’t be greater than the available item quantity.</span><br/>
+            <span>Available: {{currentItem.quantity}}</span>
+        </div>
+
+        <div class="alert alert-danger" role="alert" ng-if="errMessage">
+            <span>There is a auction in progress already.</span><br/>
+        </div>
+
+        <div class="alert alert-warning" role="alert" ng-if="enterMinBid">
+            <span>Enter a Minimum Bid</span><br/>
+        </div>
+
+        <div>
+            <button class="btn btn-primary btn-block" ng-click="start()" ng-disabled='form.$invalid'>Start Auction</button>
+            <button class="btn btn-default btn-block" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

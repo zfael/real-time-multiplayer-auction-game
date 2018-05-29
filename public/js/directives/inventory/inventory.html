@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Inventory
+    </div>
+    <div class="panel-body">
+        <div class="row" ng-repeat="inventory in inventories">
+            <div class="col-md-4 text-center">
+                <img ng-src="{{inventory.item.imageUrl}}" alt="" style="width:64px">
+                <h6 class="text-center">
+                    {{inventory.item.description}}
+                </h6>
+            </div>
+            <div class="col-md-4 text-center" style="margin-top:30px">
+                <h5>Quantity
+                    <span class="text-primary">{{inventory.quantity}}</span>
+                </h5>
+            </div>
+            <div class="col-md-4 text-center" style="margin-top:15px">
+                <i class="glyphicon glyphicon-volume-up" style="font-size:30px"></i>
+                <button class="btn btn-primary" ng-click="modalAuction(inventory)">
+                    Auction
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

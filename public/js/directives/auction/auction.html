@@ -1,0 +1,60 @@
+<div class="panel panel-primary">
+        <div class="panel-heading">
+            Current Auction
+        </div>
+        <div class="panel-body">
+
+            <div ng-if="noAuction" class="text-center">
+                <span class="text-danger">No auction at the moment.</span>
+            </div>
+            <div ng-if="!noAuction">
+                <h4 class="text-center">
+                    Seller:
+                    <span class="text-primary">{{currentAuction.userId}}</span>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <img ng-src="{{currentAuction.item.imageUrl}}" alt="" style="width:64px">
+                        <h6 class="text-center">
+                            {{currentAuction.item.description}}
+                        </h6>
+                    </div>
+                    <div class="col-md-6 text-center" style="margin-top:30px">
+                        <h5>Quantity
+                            <span class="text-primary">{{currentAuction.quantity}}</span>
+                        </h5>
+                    </div>
+                </div>
+                <h4 class="text-center">
+                    Time Left:
+                    <span class="text-primary">{{currentAuction.secondsRemaining}} seconds</span>
+                </h4>
+                <h4 class="text-center" ng-if="currentAuction.winningBid == 0">
+                    Minimum bid:
+                    <span class="text-primary">{{currentAuction.minBid}}</span>
+                </h4>
+                <h4 class="text-center" ng-if="currentAuction.winningBid > 0">
+                    Winning Bid:
+                    <span class="text-primary">{{currentAuction.winningBid}}</span>
+                </h4>
+
+                <div class="alert alert-warning" role="alert" ng-if="warnMessage">
+                    <span>Your bid must be higher than minimum and winning bid</span>
+                </div>
+                <div class="alert alert-success text-center" role="alert" ng-if="bidSubmmited">
+                    <span>Bid Submmited</span>
+                    <br/>
+                </div>
+                <div>
+
+                    <input type="number" class="form-control" placeholder="Your bid" ng-model="yourBid.value">
+                </div>
+                <div>
+
+                    <button class="btn btn-primary btn-block" ng-click="enterYourBid()">
+                        <i class="glyphicon glyphicon-ok"></i>
+                        Place Bid</button>
+                </div>
+            </div>
+        </div>
+    </div>
